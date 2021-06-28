@@ -30,7 +30,8 @@ public class FingerTracker : MonoBehaviour
             this.fingerObject.GetComponent<Renderer>().enabled = true;
 
             Vector3 pos = this.fingerObject.transform.position;
-            string fingerPos = pos.x.ToString() + " " + pos.y.ToString() + " " + pos.z.ToString();
+            Vector3 localPos = this.fingerObject.transform.parent.gameObject.transform.InverseTransformPoint(pos);
+            string fingerPos = localPos.x.ToString() + " " + localPos.y.ToString() + " " + localPos.z.ToString();
             this.osc.Send("/z", fingerPos);
         }
     }
