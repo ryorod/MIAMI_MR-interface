@@ -9,28 +9,27 @@ using Microsoft.MixedReality.Toolkit.Input;
 
 public class FingerTracker : MonoBehaviour
 {
-    public GameObject fingerObject;
     private MixedRealityPose pose;
     private OSCController osc;
 
     void Start()
     {
-        this.osc = GetComponent<OSCController>();
+        this.osc = GameObject.Find("MixedRealityPlayspace").GetComponent<OSCController>();
         this.osc.Init();
     }
 
     void Update()
     {
         // only render if hand is tracked
-        this.fingerObject.GetComponent<Renderer>().enabled = false;
+        this.gameObject.GetComponent<Renderer>().enabled = false;
 
         if (HandJointUtils.TryGetJointPose(TrackedHandJoint.IndexTip, Handedness.Left, out pose))
         {
-            this.fingerObject.transform.position = pose.Position;
-            this.fingerObject.GetComponent<Renderer>().enabled = true;
+            this.transform.position = pose.Position;
+            this.gameObject.GetComponent<Renderer>().enabled = true;
 
-            Vector3 pos = this.fingerObject.transform.position;
-            Vector3 localPos = this.fingerObject.transform.parent.gameObject.transform.InverseTransformPoint(pos);
+            Vector3 pos = this.transform.position;
+            Vector3 localPos = this.transform.parent.gameObject.transform.InverseTransformPoint(pos);
             string fingerPos = localPos.x.ToString() + " " + localPos.y.ToString() + " " + localPos.z.ToString();
             this.osc.Send("/z", fingerPos);
         }
