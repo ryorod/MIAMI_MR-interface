@@ -98,7 +98,7 @@ LightmapSettings:
     m_TrainingDataDestination: TrainingData
     m_LightProbeSampleCountMultiplier: 4
   m_LightingDataAsset: {fileID: 0}
-  m_UseShadowmask: 1
+  m_UseShadowmask: 0
 --- !u!196 &4
 NavMeshSettings:
   serializedVersion: 2
@@ -530,9 +530,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 825e6dcd5c8f91c42a8cc167916e88b8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  serverId: MaxMSP
-  serverIp: 192.168.11.12
-  serverPort: 2323
+  serverId: MusicVAE
+  serverIp: 192.168.11.101
+  serverPort: 5656
 --- !u!1 &1839457539
 GameObject:
   m_ObjectHideFlags: 0
@@ -544,8 +544,9 @@ GameObject:
   - component: {fileID: 1839457540}
   - component: {fileID: 1839457543}
   - component: {fileID: 1839457542}
-  - component: {fileID: 1839457541}
   - component: {fileID: 1839457545}
+  - component: {fileID: 1839457541}
+  - component: {fileID: 1839457544}
   m_Layer: 0
   m_Name: z
   m_TagString: Untagged
@@ -560,12 +561,12 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1839457539}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.1, y: 0.1, z: 0.1}
+  m_LocalRotation: {x: -0, y: -0.043619405, z: 0, w: 0.9990483}
+  m_LocalPosition: {x: -0.05, y: -0.025, z: 0.707}
+  m_LocalScale: {x: 0.020000001, y: 0.020000001, z: 0.020000001}
   m_Children: []
-  m_Father: {fileID: 1959817552}
-  m_RootOrder: 0
+  m_Father: {fileID: 0}
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!135 &1839457541
 SphereCollider:
@@ -627,6 +628,22 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1839457539}
   m_Mesh: {fileID: 10207, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!54 &1839457544
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1839457539}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 0
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!114 &1839457545
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -636,9 +653,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 1839457539}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e21503a88fe4bc142bfc67b24dd4a94c, type: 3}
+  m_Script: {fileID: 11500000, guid: 1ff2a907da91c1d4b8272d5117a3431c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  parentObject: {fileID: 1959817548}
+  span: 4
 --- !u!114 &1884798570
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -673,6 +692,7 @@ GameObject:
   - component: {fileID: 1959817551}
   - component: {fileID: 1959817550}
   - component: {fileID: 1959817549}
+  - component: {fileID: 1959817557}
   - component: {fileID: 1959817555}
   - component: {fileID: 1959817554}
   - component: {fileID: 1959817553}
@@ -754,8 +774,7 @@ Transform:
   m_LocalRotation: {x: 0, y: -0.043619405, z: 0, w: 0.9990483}
   m_LocalPosition: {x: -0.05, y: -0.025, z: 0.707}
   m_LocalScale: {x: 0.2, y: 0.2, z: 0.2}
-  m_Children:
-  - {fileID: 1839457540}
+  m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: -5, z: 0}
@@ -878,6 +897,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ShowTetherWhenManipulating: 0
   IsBoundsHandles: 0
+--- !u!114 &1959817557
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1959817548}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7d40924643e61d04598dadd5c6b06fd8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2035332692
 GameObject:
   m_ObjectHideFlags: 0

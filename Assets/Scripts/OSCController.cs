@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class OSCController : MonoBehaviour
 {
-    public string serverId = "MaxMSP";
+    public string serverId = "MusicVAE";
     public string serverIp = "127.0.0.1";
     public int    serverPort = 12000;
 
