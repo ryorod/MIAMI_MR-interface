@@ -10,7 +10,7 @@ Material:
   m_Name: LatentSpace_Red
   m_Shader: {fileID: 4800000, guid: 5bdea20278144b11916d77503ba1467a, type: 3}
   m_ShaderKeywords: _ALPHABLEND_ON _BORDER_LIGHT _BORDER_LIGHT_USES_HOVER_COLOR _DISABLE_ALBEDO_MAP
-    _HOVER_COLOR_OVERRIDE _HOVER_LIGHT _NEAR_PLANE_FADE_REVERSE
+    _HOVER_COLOR_OVERRIDE _HOVER_LIGHT _INNER_GLOW _NEAR_PLANE_FADE_REVERSE
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 1
   m_DoubleSidedGI: 0
@@ -81,8 +81,8 @@ Material:
     - _HoverLightOpaque: 0
     - _IgnoreZScale: 0
     - _IndependentCorners: 0
-    - _InnerGlow: 0
-    - _InnerGlowPower: 9.4
+    - _InnerGlow: 1
+    - _InnerGlowPower: 19.6
     - _InstancedColor: 0
     - _Iridescence: 0
     - _IridescenceAngle: -0.78
@@ -133,7 +133,7 @@ Material:
     - _EnvironmentColorZ: {r: 0, g: 0, b: 1, a: 1}
     - _HoverColorOpaqueOverride: {r: 1, g: 1, b: 1, a: 1}
     - _HoverColorOverride: {r: 1, g: 0.0627451, b: 0.0627451, a: 1}
-    - _InnerGlowColor: {r: 0, g: 0.45917034, b: 1, a: 1}
+    - _InnerGlowColor: {r: 0.92156863, g: 0, b: 0, a: 1}
     - _ProximityLightCenterColorOverride: {r: 1, g: 0, b: 0, a: 0}
     - _ProximityLightMiddleColorOverride: {r: 0, g: 1, b: 0, a: 0.5}
     - _ProximityLightOuterColorOverride: {r: 0, g: 0, b: 1, a: 1}

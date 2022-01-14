@@ -7,7 +7,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: LatentSpace_Green
+  m_Name: MasterCube_White
   m_Shader: {fileID: 4800000, guid: 5bdea20278144b11916d77503ba1467a, type: 3}
   m_ShaderKeywords: _ALPHABLEND_ON _BORDER_LIGHT _BORDER_LIGHT_USES_HOVER_COLOR _DISABLE_ALBEDO_MAP
     _HOVER_COLOR_OVERRIDE _HOVER_LIGHT _INNER_GLOW _NEAR_PLANE_FADE_REVERSE
@@ -82,7 +82,7 @@ Material:
     - _IgnoreZScale: 0
     - _IndependentCorners: 0
     - _InnerGlow: 1
-    - _InnerGlowPower: 19.4
+    - _InnerGlowPower: 13.6
     - _InstancedColor: 0
     - _Iridescence: 0
     - _IridescenceAngle: -0.78
@@ -132,8 +132,8 @@ Material:
     - _EnvironmentColorY: {r: 0, g: 1, b: 0, a: 1}
     - _EnvironmentColorZ: {r: 0, g: 0, b: 1, a: 1}
     - _HoverColorOpaqueOverride: {r: 1, g: 1, b: 1, a: 1}
-    - _HoverColorOverride: {r: 0, g: 1, b: 0.25490198, a: 1}
-    - _InnerGlowColor: {r: 0, g: 0.92156863, b: 0.1764706, a: 1}
+    - _HoverColorOverride: {r: 1, g: 1, b: 1, a: 1}
+    - _InnerGlowColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
     - _ProximityLightCenterColorOverride: {r: 1, g: 0, b: 0, a: 0}
     - _ProximityLightMiddleColorOverride: {r: 0, g: 1, b: 0, a: 0.5}
     - _ProximityLightOuterColorOverride: {r: 0, g: 0, b: 1, a: 1}
