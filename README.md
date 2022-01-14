@@ -1,4 +1,4 @@
-# The Mixed Reality Interafce for MIAMI
+# The Mixed Reality Interface for MIAMI
 
 The main repository of **MIAMI** is [here](https://github.com/ryorod/MIAMI).
 
