@@ -5,29 +5,46 @@ using UnityEngine;
 public class BlackBouncerManager : MonoBehaviour
 {
     private OSCController osc;
+    [System.NonSerialized] public bool useGravity = false;
+    [System.NonSerialized] public Vector3 initPos;
+    private Vector3 bounceStartPos;
 
     void Start()
     {
         this.osc = GameObject.Find("MixedRealityPlayspace").GetComponent<OSCController>();
         this.osc.InitM4L();
+
+        this.initPos = this.transform.position;
+        Physics.gravity = new Vector3(0, 0, 0);
+    }
+
+    void Update()
+    {
+        if (this.useGravity)
+        {
+            if (this.transform.position.y < -2f)
+            {
+                this.transform.position = this.bounceStartPos;
+            }
+        }
     }
 
     void OnCollisionEnter(Collision collision)
     {
-        Vector3 userPos = Camera.main.transform.position;
-        Vector3 pos = this.transform.position;
         Vector3 velXYZ = this.gameObject.GetComponent<Rigidbody>().velocity;
         float vel = Mathf.Max(Mathf.Abs(velXYZ.x), Mathf.Max(Mathf.Abs(velXYZ.y), Mathf.Abs(velXYZ.z)));
-        string msg = pos.x.ToString() + " " + pos.y.ToString() + " " + pos.z.ToString() + " " +
-                     vel.ToString();
-        string userPosMsg = userPos.x.ToString() + " " + userPos.y.ToString() + " " + userPos.z.ToString();
-        
-        this.osc.SendM4L("/user_pos", userPosMsg);
+        string msg = vel.ToString();
         this.osc.SendM4L("/" + this.gameObject.name, msg);
     }
 
-    void OnCollisionExit(Collision collision)
+    public void StartBouncing()
     {
-        this.osc.SendM4L("/" + this.gameObject.name + "_release", "");
+        this.bounceStartPos = this.transform.position;
+
+        if (!this.useGravity)
+        {
+            Physics.gravity = new Vector3(0, -9.807f, 0);
+            this.useGravity = true;
+        }
     }
 }

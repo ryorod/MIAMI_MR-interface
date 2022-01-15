@@ -28,6 +28,10 @@ public class ObjectPropertyManager : MonoBehaviour
                 this.SendOSC(this.obj_2);
             }
         }
+
+        Vector3 userPos = Camera.main.transform.position;
+        string userPosMsg = userPos.x.ToString() + " " + userPos.y.ToString() + " " + userPos.z.ToString();
+        this.osc.SendM4L("/user_pos", userPosMsg);
     }
 
     public void OnParentTransform(GameObject obj)
