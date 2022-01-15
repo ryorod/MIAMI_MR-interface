@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class MasterCubeManager : MonoBehaviour
+public class BlackBouncerInitializer : MonoBehaviour
 {
     private GameObject blackBouncer;
 
