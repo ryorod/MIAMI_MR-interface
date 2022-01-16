@@ -11,6 +11,10 @@ public class MasterCubeManager : MonoBehaviour
     [SerializeField] private GameObject audienceCore;
     private Vector3 audienceCoreInitPos;
     private bool isManipulated = false;
+    private bool drumsDelayIsValid = false;
+    private bool melReduxIsValid = false;
+    private bool bassDelayIsValid = false;
+    private bool melFifthChordIsValid = false;
 
     void Start()
     {
@@ -25,6 +29,7 @@ public class MasterCubeManager : MonoBehaviour
         {
             this.audienceCoreInitPos = this.audienceCore.transform.position;
             this.audienceCore.SetActive(false);
+            this.osc.SendM4L("/audience_core_is_valid", "0");
         }
 
         // Somehow there's a NullReferenceException when hitting the drums cube.
@@ -37,15 +42,45 @@ public class MasterCubeManager : MonoBehaviour
         {
             if (collision.gameObject == this.drums)
             {
-                this.osc.SendM4L("/change_drums", "");
+                if (this.drumsDelayIsValid)
+                {
+                    this.osc.SendM4L("/drums_delay_dry-wet", "0.");
+                    this.drumsDelayIsValid = false;
+                }
+                else
+                {
+                    string msg = this.transform.position.y.ToString();
+                    this.osc.SendM4L("/drums_delay_dry-wet", msg);
+                    this.drumsDelayIsValid = true;
+                }
             }
             else if (collision.gameObject == this.mel)
             {
-                this.osc.SendM4L("/change_mel", "");
+                if (this.melReduxIsValid)
+                {
+                    this.osc.SendM4L("/mel_redux_downsample", "1.");
+                    this.melReduxIsValid = false;
+                }
+                else
+                {
+                    string msg = this.transform.position.y.ToString();
+                    this.osc.SendM4L("/mel_redux_downsample", msg);
+                    this.melReduxIsValid = true;
+                }
             }
             else if (collision.gameObject == this.bass)
             {
-                this.osc.SendM4L("/change_bass", "");
+                if (this.bassDelayIsValid)
+                {
+                    this.osc.SendM4L("/bass_delay_dry-wet", "0.");
+                    this.bassDelayIsValid = false;
+                }
+                else
+                {
+                    string msg = this.transform.position.y.ToString();
+                    this.osc.SendM4L("/bass_delay_dry-wet", msg);
+                    this.bassDelayIsValid = true;
+                }
             }
             else if (this.audienceCore != null &&
                      collision.gameObject == this.audienceCore)
@@ -60,6 +95,19 @@ public class MasterCubeManager : MonoBehaviour
             {
                 this.audienceCore.SetActive(true);
                 this.osc.SendM4L("/audience_core_is_valid", "1");
+            }
+            else
+            {
+                if (this.melFifthChordIsValid)
+                {
+                    this.osc.SendM4L("/mel_fifth-chord", "0.");
+                    this.melFifthChordIsValid = false;
+                }
+                else
+                {
+                    this.osc.SendM4L("/mel_fifth-chord", "1.");
+                    this.melFifthChordIsValid = true;
+                }
             }
         }
     }
