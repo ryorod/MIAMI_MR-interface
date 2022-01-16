@@ -5,11 +5,11 @@ using UnityEngine;
 public class zManager : MonoBehaviour
 {
     private OSCController osc;
-    public GameObject parentObject;
+    [SerializeField] private GameObject parentObject;
     private Vector3 zWorldPos;
     private bool isManipulated = false;
     private float localPosBoundary;
-    public string instrument = "drums";
+    [SerializeField] private string instrument = "drums";
 
     void Start()
     {

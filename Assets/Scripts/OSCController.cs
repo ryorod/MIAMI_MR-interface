@@ -4,11 +4,11 @@ using UnityEngine;
 
 public class OSCController : MonoBehaviour
 {
-    public string receiverIp = "127.0.0.1";
-    public string serverId = "MusicVAE";
-    public int    serverPort = 12000;
-    public string M4LId = "M4L";
-    public int M4LPort = 13000;
+    [SerializeField] private string receiverIp = "127.0.0.1";
+    [SerializeField] private string serverId = "MusicVAE";
+    [SerializeField] private int    serverPort = 12000;
+    [SerializeField] private string M4LId = "M4L";
+    [SerializeField] private int M4LPort = 13000;
 
     public void Init()
     {
