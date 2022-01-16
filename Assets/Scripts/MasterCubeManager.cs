@@ -27,6 +27,7 @@ public class MasterCubeManager : MonoBehaviour
             this.audienceCore.SetActive(false);
         }
 
+        // Somehow there's a NullReferenceException when hitting the drums cube.
         Debug.developerConsoleVisible = false;
     }
 
