@@ -67,7 +67,7 @@ public class ObjectPropertyManager : MonoBehaviour
     private void SendOSC(GameObject sendObj)
     {
         Vector3 pos = sendObj.transform.position;
-        Vector3 angle = sendObj.transform.eulerAngles;
+        Vector3 angle = sendObj.transform.localEulerAngles;
         Vector3 sizeXYZ = sendObj.transform.lossyScale;
         float size = (sizeXYZ.x + sizeXYZ.y + sizeXYZ.z) / 3f;
         string msg = pos.x.ToString() + " " + pos.y.ToString() + " " + pos.z.ToString() + " " +
