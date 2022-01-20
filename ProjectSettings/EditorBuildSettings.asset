@@ -6,6 +6,15 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
+    path: Assets/MixedReality-SpectatorView/SpectatorView/Scenes/SpectatorView.iOS.unity
+    guid: f8cc70d0d868b754ab89047eb4a6317b
+  - enabled: 1
     path: Assets/Scenes/MIAMI.unity
     guid: 9fc0d4010bbf28b4594072e72b8655ab
-  m_configObjects: {}
+  m_configObjects:
+    UnityEditor.XR.ARCore.ARCoreSettings: {fileID: 11400000, guid: f08843c3423743c4481f2d8c5f8cf38f,
+      type: 2}
+    UnityEditor.XR.ARKit.ARKitSettings: {fileID: 11400000, guid: ea3b747af57e3c44989e977c22ef4696,
+      type: 2}
+    com.unity.xr.management.loader_settings: {fileID: 11400000, guid: ac854fb6ecdd5ed49b4207462ce9bf02,
+      type: 2}
